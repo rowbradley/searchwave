@@ -94,13 +94,11 @@ Single orchestrator, Opus synthesis. Length options: 500 / 800 / 1200 words.
 
 Print banner:
 ```
-╔══════════════════════════════════════════════════╗
-║             S E A R C H W A V E                  ║
-╚══════════════════════════════════════════════════╝
-
-╭─────────────────────────────────────────╮
-│  SEARCHING: 3 parallel queries...       │
-╰─────────────────────────────────────────╯
+╔═════════════════════════════════════════╗
+║           S E A R C H W A V E           ║
+║                · · · · ·                ║
+║      Searching: 3 parallel queries      ║
+╚═════════════════════════════════════════╝
 ```
 
 ### Step 1: Search (parallel)
@@ -172,13 +170,11 @@ Single orchestrator, full Opus synthesis. Length options: 800 / 1200 / 1500 word
 
 Print banner:
 ```
-╔══════════════════════════════════════════════════╗
-║             S E A R C H W A V E                  ║
-╚══════════════════════════════════════════════════╝
-
-╭─────────────────────────────────────────╮
-│  SEARCHING: 6 parallel queries...       │
-╰─────────────────────────────────────────╯
+╔═════════════════════════════════════════╗
+║           S E A R C H W A V E           ║
+║                · · · · ·                ║
+║      Searching: 6 parallel queries      ║
+╚═════════════════════════════════════════╝
 ```
 
 ### Step 1: Search (parallel)
@@ -268,13 +264,11 @@ Length options: 800 / 1200 / 1500+ words (1500+ allows Opus to extend up to ~250
 
 Print banner:
 ```
-╔══════════════════════════════════════════════════╗
-║             S E A R C H W A V E                  ║
-╚══════════════════════════════════════════════════╝
-
-╭─────────────────────────────────────────╮
-│  SEARCHING: Dispatching research agents │
-╰─────────────────────────────────────────╯
+╔═════════════════════════════════════════╗
+║           S E A R C H W A V E           ║
+║                · · · · ·                ║
+║   Searching: Dispatching research agents║
+╚═════════════════════════════════════════╝
 ```
 
 ### Step 1: Parallel Research (ONE message)
@@ -327,7 +321,7 @@ Proceed with available results. Do NOT print "Agent X completed" messages — co
 Print status banner:
 ```
 ╭─────────────────────────────────────────╮
-│  EVALUATING: Quality signals...         │
+│  Evaluating: Quality signals            │
 ╰─────────────────────────────────────────╯
 ```
 
@@ -383,7 +377,7 @@ If NEEDS_MORE:
 Print status banner:
 ```
 ╭─────────────────────────────────────────╮
-│  FOLLOWING UP: Filling gaps...          │
+│  Following up: Filling gaps             │
 ╰─────────────────────────────────────────╯
 ```
 
@@ -408,7 +402,7 @@ Collect with `TaskOutput(timeout: 60000)`. Proceed with available results.
 Print status banner:
 ```
 ╭─────────────────────────────────────────╮
-│  SYNTHESIZING: Building report...       │
+│  Synthesizing: Building report          │
 ╰─────────────────────────────────────────╯
 ```
 
