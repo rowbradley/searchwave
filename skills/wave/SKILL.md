@@ -1,8 +1,7 @@
 ---
 name: wave
-description: Use when user needs quick web research (~60 sec), fast context
-  gathering, asks for "quick lookup", or wants a fast answer on any topic.
-  No QA, no depth selection - just runs.
+description: Quick web research (~60 sec) - fast lookups, synthesis. Use for "quick lookup", "fast research", or any topic needing quick context.
+user-invocable: true
 ---
 
 # Searchwave

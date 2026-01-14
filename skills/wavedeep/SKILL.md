@@ -1,8 +1,7 @@
 ---
 name: wavedeep
-description: Use when user wants comprehensive web research with depth selection,
-  asks for "deep research", "comprehensive research", or needs multi-source
-  synthesis with confidence assessment.
+description: Deep web research with depth selection (~70s to 10min). Use for "deep research", "comprehensive research", or multi-source synthesis.
+user-invocable: true
 ---
 
 # Searchwave Deep
