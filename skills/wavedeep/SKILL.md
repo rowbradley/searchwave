@@ -92,6 +92,18 @@ Always include one "Recent developments" option. NEVER include specific years in
 
 Single orchestrator, Opus synthesis. Length options: 500 / 800 / 1200 words.
 
+Print banner:
+```
+\033[36m ___  ___   _   ___  ___ _  ___      _____   _____ \033[0m
+\033[34m/ __| __| /_\ | _ \/ __| || \ \    / /_\ \ / / __|\033[0m
+\033[35m\__ \ _| / _ \|   / (__| __ |\ \/\/ / _ \ V /| _| \033[0m
+\033[33m|___/___/_/ \_\_|_\___|_||_| \_/\_/_/ \_\_/ |___|  \033[0m
+
+\033[36m╭─────────────────────────────────────────╮\033[0m
+\033[36m│  QUICK: Searching...                    │\033[0m
+\033[36m╰─────────────────────────────────────────╯\033[0m
+```
+
 ### Step 1: Search (parallel)
 
 Fire 3 WebSearches in ONE message:
@@ -158,6 +170,18 @@ Output format:
 ## Standard Mode (~2 min)
 
 Single orchestrator, full Opus synthesis. Length options: 800 / 1200 / 1500 words.
+
+Print banner:
+```
+\033[36m ___  ___   _   ___  ___ _  ___      _____   _____ \033[0m
+\033[34m/ __| __| /_\ | _ \/ __| || \ \    / /_\ \ / / __|\033[0m
+\033[35m\__ \ _| / _ \|   / (__| __ |\ \/\/ / _ \ V /| _| \033[0m
+\033[33m|___/___/_/ \_\_|_\___|_||_| \_/\_/_/ \_\_/ |___|  \033[0m
+
+\033[34m╭─────────────────────────────────────────╮\033[0m
+\033[34m│  STANDARD: Deep searching...            │\033[0m
+\033[34m╰─────────────────────────────────────────╯\033[0m
+```
 
 ### Step 1: Search (parallel)
 
@@ -244,11 +268,16 @@ Output format:
 Multi-agent research with quality evaluation and follow-up loop.
 Length options: 800 / 1200 / 1500+ words (1500+ allows Opus to extend up to ~2500 if valuable).
 
-Print status banner before starting:
+Print banner:
 ```
-╭─────────────────────────────────────────╮
-│  WAVE 1: Dispatching research agents    │
-╰─────────────────────────────────────────╯
+\033[36m ___  ___   _   ___  ___ _  ___      _____   _____ \033[0m
+\033[34m/ __| __| /_\ | _ \/ __| || \ \    / /_\ \ / / __|\033[0m
+\033[35m\__ \ _| / _ \|   / (__| __ |\ \/\/ / _ \ V /| _| \033[0m
+\033[33m|___/___/_/ \_\_|_\___|_||_| \_/\_/_/ \_\_/ |___|  \033[0m
+
+\033[36m╭─────────────────────────────────────────╮\033[0m
+\033[36m│  WAVE 1: Dispatching research agents    │\033[0m
+\033[36m╰─────────────────────────────────────────╯\033[0m
 ```
 
 ### Step 1: Wave 1 — Parallel Research (ONE message)
@@ -300,9 +329,9 @@ Proceed with available results. Do NOT print "Agent X completed" messages — co
 
 Print status banner:
 ```
-╭─────────────────────────────────────────╮
-│  EVALUATING: Quality signals...         │
-╰─────────────────────────────────────────╯
+\033[35m╭─────────────────────────────────────────╮\033[0m
+\033[35m│  EVALUATING: Quality signals...         │\033[0m
+\033[35m╰─────────────────────────────────────────╯\033[0m
 ```
 
 Spawn ONE Task with `model: opus` and `subagent_type: general-purpose`:
@@ -374,9 +403,9 @@ Collect with `TaskOutput(timeout: 60000)`. Proceed with available results.
 
 Print status banner:
 ```
-╭─────────────────────────────────────────╮
-│  SYNTHESIZING: Building report...       │
-╰─────────────────────────────────────────╯
+\033[33m╭─────────────────────────────────────────╮\033[0m
+\033[33m│  SYNTHESIZING: Building report...       │\033[0m
+\033[33m╰─────────────────────────────────────────╯\033[0m
 ```
 
 Spawn ONE Task with `model: opus` and `subagent_type: general-purpose`:
