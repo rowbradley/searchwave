@@ -4,32 +4,27 @@ AI research synthesis for Claude Code — quick lookups to deep research with Op
 
 ## Installation
 
-**Development (load on startup):**
+Copy skills to your Claude Code skills directory:
+
 ```bash
-claude --plugin-dir ~/Projects/searchwave
+# Clone repo
+git clone https://github.com/rowbradley/searchwave.git
+
+# Copy skills
+cp -r searchwave/skills/wave ~/.claude/skills/
+cp -r searchwave/skills/wavedeep ~/.claude/skills/
 ```
 
-**Persistent (local marketplace):**
-```bash
-claude plugin marketplace add ~/Projects/searchwave
-claude plugin install searchwave@searchwave
-```
+Restart Claude Code to load skills.
 
-After either method, restart Claude Code to load commands.
-
-## Commands
+## Usage
 
 | Command | Time | Description |
 |---------|------|-------------|
 | `/wave [topic]` | ~60s | Quick research, no questions asked |
 | `/wavedeep [topic]` | ~70s-10min | Deep research with depth selection |
 
-## Skills
-
-Skills can also be invoked automatically based on context:
-
-- `searchwave:wave` — Triggers on "quick lookup", "fast research"
-- `searchwave:wavedeep` — Triggers on "deep research", "comprehensive research"
+Skills are also auto-invoked by Claude when relevant to your task.
 
 ## /wave (Quick Research)
 
@@ -40,7 +35,7 @@ No QA — just runs and returns results.
 
 ## /wavedeep (Deep Research)
 
-Asks for depth and priority before running:
+Asks for depth before running:
 
 | Tier | Time | Architecture |
 |------|------|--------------|
@@ -50,13 +45,6 @@ Asks for depth and priority before running:
 
 **Output:** Survey-style report with confidence assessment, inline citations,
 source limitations noted.
-
-## Development
-
-This package follows the superpowers skill pattern:
-- Commands are thin wrappers that invoke skills
-- Skills contain full execution instructions
-- Subagent prompts extracted to separate files
 
 ## License
 
