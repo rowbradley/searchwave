@@ -34,19 +34,15 @@ runs immediately.
 
 ### Step 0: Print banner
 
-Print this colored ASCII banner immediately:
+Print this banner immediately:
 ```
-\033[36m ___  ___   _   ___  ___ _  ___      _____   _____ \033[0m
-\033[34m/ __| __| /_\ | _ \/ __| || \ \    / /_\ \ / / __|\033[0m
-\033[35m\__ \ _| / _ \|   / (__| __ |\ \/\/ / _ \ V /| _| \033[0m
-\033[33m|___/___/_/ \_\_|_\___|_||_| \_/\_/_/ \_\_/ |___|  \033[0m
-```
+╔══════════════════════════════════════════════════╗
+║             S E A R C H W A V E                  ║
+╚══════════════════════════════════════════════════╝
 
-Then print status:
-```
-\033[36m╭─────────────────────────────────────────╮\033[0m
-\033[36m│  SEARCHING: 3 parallel queries...       │\033[0m
-\033[36m╰─────────────────────────────────────────╯\033[0m
+╭─────────────────────────────────────────╮
+│  SEARCHING: 3 parallel queries...       │
+╰─────────────────────────────────────────╯
 ```
 
 ### Step 1: Search (3 parallel)
@@ -107,4 +103,4 @@ Include ONLY if warranted:
 - Code blocks: NO width limit
 - ASCII diagrams: NO width limit
 
-End with: `*Searchwave in [XX]s*`
+End with: `*Searchwave · [N] sources*` (where N is the number of sources fetched)

@@ -94,14 +94,13 @@ Single orchestrator, Opus synthesis. Length options: 500 / 800 / 1200 words.
 
 Print banner:
 ```
-\033[36m ___  ___   _   ___  ___ _  ___      _____   _____ \033[0m
-\033[34m/ __| __| /_\ | _ \/ __| || \ \    / /_\ \ / / __|\033[0m
-\033[35m\__ \ _| / _ \|   / (__| __ |\ \/\/ / _ \ V /| _| \033[0m
-\033[33m|___/___/_/ \_\_|_\___|_||_| \_/\_/_/ \_\_/ |___|  \033[0m
+╔══════════════════════════════════════════════════╗
+║             S E A R C H W A V E                  ║
+╚══════════════════════════════════════════════════╝
 
-\033[36m╭─────────────────────────────────────────╮\033[0m
-\033[36m│  QUICK: Searching...                    │\033[0m
-\033[36m╰─────────────────────────────────────────╯\033[0m
+╭─────────────────────────────────────────╮
+│  SEARCHING: 3 parallel queries...       │
+╰─────────────────────────────────────────╯
 ```
 
 ### Step 1: Search (parallel)
@@ -162,7 +161,7 @@ Output format:
 ## Sources
 [2-3 sources with one-line descriptions]
 
-*Searchwave Deep (Quick) in [XX]s*
+*Searchwave Deep (Quick) · [N] sources*
 ```
 
 ---
@@ -173,14 +172,13 @@ Single orchestrator, full Opus synthesis. Length options: 800 / 1200 / 1500 word
 
 Print banner:
 ```
-\033[36m ___  ___   _   ___  ___ _  ___      _____   _____ \033[0m
-\033[34m/ __| __| /_\ | _ \/ __| || \ \    / /_\ \ / / __|\033[0m
-\033[35m\__ \ _| / _ \|   / (__| __ |\ \/\/ / _ \ V /| _| \033[0m
-\033[33m|___/___/_/ \_\_|_\___|_||_| \_/\_/_/ \_\_/ |___|  \033[0m
+╔══════════════════════════════════════════════════╗
+║             S E A R C H W A V E                  ║
+╚══════════════════════════════════════════════════╝
 
-\033[34m╭─────────────────────────────────────────╮\033[0m
-\033[34m│  STANDARD: Deep searching...            │\033[0m
-\033[34m╰─────────────────────────────────────────╯\033[0m
+╭─────────────────────────────────────────╮
+│  SEARCHING: 6 parallel queries...       │
+╰─────────────────────────────────────────╯
 ```
 
 ### Step 1: Search (parallel)
@@ -258,7 +256,7 @@ Output format:
 ## Sources
 [Deduplicated, one-line descriptions]
 
-*Searchwave Deep (Standard) in [XX]s*
+*Searchwave Deep (Standard) · [N] sources*
 ```
 
 ---
@@ -270,17 +268,16 @@ Length options: 800 / 1200 / 1500+ words (1500+ allows Opus to extend up to ~250
 
 Print banner:
 ```
-\033[36m ___  ___   _   ___  ___ _  ___      _____   _____ \033[0m
-\033[34m/ __| __| /_\ | _ \/ __| || \ \    / /_\ \ / / __|\033[0m
-\033[35m\__ \ _| / _ \|   / (__| __ |\ \/\/ / _ \ V /| _| \033[0m
-\033[33m|___/___/_/ \_\_|_\___|_||_| \_/\_/_/ \_\_/ |___|  \033[0m
+╔══════════════════════════════════════════════════╗
+║             S E A R C H W A V E                  ║
+╚══════════════════════════════════════════════════╝
 
-\033[36m╭─────────────────────────────────────────╮\033[0m
-\033[36m│  WAVE 1: Dispatching research agents    │\033[0m
-\033[36m╰─────────────────────────────────────────╯\033[0m
+╭─────────────────────────────────────────╮
+│  SEARCHING: Dispatching research agents │
+╰─────────────────────────────────────────╯
 ```
 
-### Step 1: Wave 1 — Parallel Research (ONE message)
+### Step 1: Parallel Research (ONE message)
 
 Fire 3 Task tools simultaneously with `run_in_background: true`:
 
@@ -329,9 +326,9 @@ Proceed with available results. Do NOT print "Agent X completed" messages — co
 
 Print status banner:
 ```
-\033[35m╭─────────────────────────────────────────╮\033[0m
-\033[35m│  EVALUATING: Quality signals...         │\033[0m
-\033[35m╰─────────────────────────────────────────╯\033[0m
+╭─────────────────────────────────────────╮
+│  EVALUATING: Quality signals...         │
+╰─────────────────────────────────────────╯
 ```
 
 Spawn ONE Task with `model: opus` and `subagent_type: general-purpose`:
@@ -379,9 +376,16 @@ If NEEDS_MORE:
   (Max 2-3 items total — prioritize highest value)
 ```
 
-### Step 4: Wave 2 — Targeted Follow-up (conditional)
+### Step 4: Targeted Follow-up (conditional)
 
 **Only if Opus evaluation returns NEEDS_MORE.**
+
+Print status banner:
+```
+╭─────────────────────────────────────────╮
+│  FOLLOWING UP: Filling gaps...          │
+╰─────────────────────────────────────────╯
+```
 
 Spawn 1-2 targeted agents based on evaluation output:
 
@@ -403,9 +407,9 @@ Collect with `TaskOutput(timeout: 60000)`. Proceed with available results.
 
 Print status banner:
 ```
-\033[33m╭─────────────────────────────────────────╮\033[0m
-\033[33m│  SYNTHESIZING: Building report...       │\033[0m
-\033[33m╰─────────────────────────────────────────╯\033[0m
+╭─────────────────────────────────────────╮
+│  SYNTHESIZING: Building report...       │
+╰─────────────────────────────────────────╯
 ```
 
 Spawn ONE Task with `model: opus` and `subagent_type: general-purpose`:
@@ -487,7 +491,8 @@ Acknowledge source limitations when relevant:
 ## Go Deeper?
 Want me to explore any particular area further?
 
-*Searchwave Deep (Max) in [XX]s*
+*Searchwave Deep (Max) · [N] sources*
+(If follow-up wave was triggered, append: " · 2 waves")
 
 IMPORTANT: The "Go Deeper?" section must be exactly as shown — one simple question.
 Do NOT add bullet points, angle suggestions, or commentary about gaps.
