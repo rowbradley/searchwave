@@ -32,11 +32,21 @@ runs immediately.
 
 **Complete in 60 seconds. Dense facts, not fluff.**
 
-Print status banner:
+### Step 0: Print banner
+
+Print this colored ASCII banner immediately:
 ```
-╭─────────────────────────────────────────╮
-│  SEARCHING: 3 parallel queries...       │
-╰─────────────────────────────────────────╯
+\033[36m ___  ___   _   ___  ___ _  ___      _____   _____ \033[0m
+\033[34m/ __| __| /_\ | _ \/ __| || \ \    / /_\ \ / / __|\033[0m
+\033[35m\__ \ _| / _ \|   / (__| __ |\ \/\/ / _ \ V /| _| \033[0m
+\033[33m|___/___/_/ \_\_|_\___|_||_| \_/\_/_/ \_\_/ |___|  \033[0m
+```
+
+Then print status:
+```
+\033[36m╭─────────────────────────────────────────╮\033[0m
+\033[36m│  SEARCHING: 3 parallel queries...       │\033[0m
+\033[36m╰─────────────────────────────────────────╯\033[0m
 ```
 
 ### Step 1: Search (3 parallel)
