@@ -267,7 +267,7 @@ Print banner:
 ╔═════════════════════════════════════════╗
 ║           S E A R C H W A V E           ║
 ║                · · · · ·                ║
-║   Searching: Dispatching research agents║
+║      Dispatching research agents        ║
 ╚═════════════════════════════════════════╝
 ```
 
@@ -321,7 +321,7 @@ Proceed with available results. Do NOT print "Agent X completed" messages — co
 Print status banner:
 ```
 ╭─────────────────────────────────────────╮
-│  Evaluating: Quality signals            │
+│  Evaluating: Quality signals...         │
 ╰─────────────────────────────────────────╯
 ```
 
@@ -377,7 +377,7 @@ If NEEDS_MORE:
 Print status banner:
 ```
 ╭─────────────────────────────────────────╮
-│  Following up: Filling gaps             │
+│  Filling gaps...                        │
 ╰─────────────────────────────────────────╯
 ```
 
@@ -402,7 +402,7 @@ Collect with `TaskOutput(timeout: 60000)`. Proceed with available results.
 Print status banner:
 ```
 ╭─────────────────────────────────────────╮
-│  Synthesizing: Building report          │
+│  Building report...                     │
 ╰─────────────────────────────────────────╯
 ```
 
