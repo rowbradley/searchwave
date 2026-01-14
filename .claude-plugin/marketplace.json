@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "searchwave",
-      "source": ".",
+      "source": "./",
       "description": "AI research synthesis - quick lookups to deep research with Opus"
     }
   ]
