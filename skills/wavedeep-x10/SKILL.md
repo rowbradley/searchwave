@@ -141,17 +141,3 @@ Output format:
 *Searchwave Deep (X10) · [N] sources*
 ```
 
----
-
-## Testing Notes
-
-**Compare against:** `/wavedeep` Standard mode (6 searches, 6 fetches)
-
-**Metrics to track:**
-- Time to completion
-- Number of successful fetches (out of 10)
-- Source diversity (unique domains)
-- Output quality (subjective)
-- Any OOM or fetch failures
-
-**Log results to:** `Personal/Projects/Context/Development.md`
