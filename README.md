@@ -4,6 +4,16 @@ AI research synthesis for Claude Code — quick lookups to deep research with Op
 
 ## Installation
 
+### Plugin Install (Recommended)
+
+```bash
+claude plugin add github:rowbradley/searchwave
+```
+
+Restart Claude Code to load the plugin.
+
+### Manual Install
+
 Copy skills to your Claude Code skills directory:
 
 ```bash
@@ -23,6 +33,7 @@ Restart Claude Code to load skills.
 |---------|------|-------------|
 | `/wave [topic]` | ~60s | Quick research, no questions asked |
 | `/wavedeep [topic]` | ~70s-10min | Deep research with depth selection |
+| `/wavedeep-x10 [topic]` | ~90s | Experimental: 10 parallel searches |
 
 Skills are also auto-invoked by Claude when relevant to your task.
 
@@ -45,6 +56,12 @@ Asks for depth before running:
 
 **Output:** Survey-style report with confidence assessment, inline citations,
 source limitations noted.
+
+## /wavedeep-x10 (Experimental)
+
+Standard mode variant with 10 parallel searches instead of 6. Testing whether
+more search diversity improves output quality. Compare against `/wavedeep`
+Standard mode.
 
 ## License
 
