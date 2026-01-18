@@ -7,7 +7,11 @@ AI research synthesis for Claude Code — quick lookups to deep research with Op
 ### Plugin Install (Recommended)
 
 ```bash
-claude plugin add github:rowbradley/searchwave
+# Add as marketplace (one-time)
+claude plugin marketplace add rowbradley/searchwave
+
+# Install the plugin
+claude plugin install searchwave
 ```
 
 Restart Claude Code to load the plugin.
