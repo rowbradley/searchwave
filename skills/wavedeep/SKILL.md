@@ -524,8 +524,14 @@ Want me to explore any other area?
 | Wave 2 adds nothing | Proceed to synthesis, don't spawn more waves |
 | Evaluation unclear | Default to SUFFICIENT, proceed to synthesis |
 
-**CRITICAL: Output discipline**
-- Return the Opus synthesis output ONLY — no wrapper text before or after
-- Do NOT announce agent completions ("Agent X completed")
-- Do NOT add commentary after the report ("Research complete...", "Let me know if...")
-- The synthesis output IS the final response — nothing else
+**CRITICAL: Output handling**
+
+When you receive the TaskOutput from the Opus synthesis agent:
+1. **Print the COMPLETE synthesis verbatim** — every word, every section, full length
+2. Do NOT summarize, paraphrase, or truncate the synthesis
+3. Do NOT add commentary before or after
+4. The TaskOutput content IS your response — pass it through completely
+
+The synthesis agent writes 800-2500 words. ALL of those words must appear in
+your output. If you're tempted to shorten it, don't — the user asked for
+comprehensive research.
