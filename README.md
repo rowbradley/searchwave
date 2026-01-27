@@ -1,19 +1,18 @@
 # Searchwave
 
-AI research synthesis for Claude Code — quick lookups to deep multi-agent research with Opus.
+Research from your terminal. Type `/wave sleep optimization` and get a cited
+summary in 60 seconds. Need more? `/deepwave` runs multi-agent research with
+quality evaluation and Opus synthesis.
 
-## Requirements
-
-- Claude Code with WebSearch tool access
-- Works best with Sonnet 4 or Opus 4.5
+A plugin for [Claude Code](https://docs.anthropic.com/en/docs/claude-code),
+Anthropic's CLI for Claude.
 
 ## Commands
 
 | Command | Time | What it does |
 |---------|------|--------------|
-| `/wave [topic]` | ~60s | Quick research — 3 searches, 3 fetches, Sonnet synthesis. No questions. |
-| `/deepwave [topic]` | ~70s-10min | Deep research — asks depth/priority, Opus synthesis. 3 tiers. |
-| `/deepwave-x10 [topic]` | ~90s | Experimental — 10 parallel searches instead of 6. |
+| `/wave [topic]` | ~60s | Quick research. No questions asked. |
+| `/deepwave [topic]` | 70s–10min | Deep research with depth and priority selection. |
 
 ## When to Use Which
 
@@ -36,7 +35,7 @@ claude plugin marketplace add rowbradley/searchwave
 claude plugin install searchwave
 ```
 
-Restart Claude Code to load the plugin.
+Restart Claude Code after installing.
 
 ### Manual Install
 
@@ -46,27 +45,27 @@ cp -r searchwave/skills/wave ~/.claude/skills/
 cp -r searchwave/skills/deepwave ~/.claude/skills/
 ```
 
-Restart Claude Code to load skills.
+## How /wave Works
 
-## /wave — Quick Research (~60s)
+3 parallel web searches → 3 best URLs fetched → Sonnet synthesis.
+No questions, no configuration. You type, it runs.
 
-Single orchestrator, 3 parallel searches, 3 parallel fetches, Sonnet synthesis.
-No QA — runs immediately.
+**Output:** 300–400 words, inline citations, survey voice. Hard-wrapped
+at 80 columns for terminal readability.
 
-**Output:** 300-400 words with sources, inline citations, no AI fluff.
+## How /deepwave Works
 
-## /deepwave — Deep Research
-
-Asks for depth before running:
+Asks two things before running: how deep, and what angle matters most.
 
 | Tier | Time | Architecture |
 |------|------|--------------|
-| Quick | ~70s | Single orchestrator, Opus synthesis |
-| Standard | ~90s | Single orchestrator, 6 searches, Opus synthesis |
-| Max | ~5-10min | 3 parallel research agents, Opus evaluation + follow-up loop |
+| Quick | ~70s | 3 searches, Opus synthesis |
+| Standard | ~90s | 6 searches, Opus synthesis |
+| Max | ~5–10min | 3 parallel research agents → Opus evaluation → follow-up loop |
 
-**Output:** Survey-style report with confidence assessment, inline citations,
-source limitations noted. Max mode includes a "Go Deeper?" follow-up loop.
+**Output:** Survey-style report with inline citations, source quality
+notes, and confidence assessment. Max mode adds a "Go Deeper?" loop
+for iterative exploration.
 
 ### Max Mode Architecture
 
@@ -93,19 +92,24 @@ source limitations noted. Max mode includes a "Go Deeper?" follow-up loop.
 └─────────────────────────────────────────┘
 ```
 
-## /deepwave-x10 — Experimental
-
-Standard mode variant with 10 parallel searches instead of 6. Testing whether
-more search diversity improves output quality. Compare against `/deepwave`
-Standard mode.
-
 ## Design Principles
 
 - **Survey voice** — report what was found, don't editorialize
-- **Inline citations** — every claim attributed to source
+- **Inline citations** — every claim attributed to its source
 - **Source limitations noted** — vendor reports flagged, small samples called out
 - **No AI writing patterns** — no hyperbole, no dramatic reframes, numbers first
-- **Terminal-native** — hard-wrapped at 80 cols for readability
+- **Terminal-native** — hard-wrapped at 80 columns for readability
+
+## Requirements
+
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) with WebSearch access
+- Works best with Sonnet 4 or Opus 4.5
+
+## Experimental
+
+`/deepwave-x10 [topic]` — Standard mode variant with 10 parallel searches
+instead of 6. Testing whether more search diversity improves output quality.
+Compare against `/deepwave` Standard.
 
 ## License
 
