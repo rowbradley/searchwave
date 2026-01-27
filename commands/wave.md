@@ -1,5 +1,5 @@
 ---
-description: "Quick web research (~60 sec) - fast lookups, synthesis"
+description: "Quick web research (~60 sec) - fast lookups, Opus synthesis"
 ---
 
 # Searchwave

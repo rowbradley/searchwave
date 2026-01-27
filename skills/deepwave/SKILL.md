@@ -1,6 +1,6 @@
 ---
 name: deepwave
-description: Deep web research with depth selection (~70s to 10min). Use for "deep research", "comprehensive research", or multi-source synthesis.
+description: Deep web research with Opus synthesis (~70s to 10min). Use for "deep research", "comprehensive research", or multi-source synthesis.
 user-invocable: true
 ---
 
@@ -10,9 +10,12 @@ Deep web research with Opus synthesis — Quick (~70s) / Standard (~90s) / Max (
 
 ## Overview
 
-Three-tier research system with user-selected depth. All tiers use Opus for
-final synthesis. Max mode adds multi-agent research with quality evaluation
-and follow-up loop.
+Three-tier research system with user-selected depth. All tiers use Opus
+(model default) for synthesis. Max mode adds multi-agent research with
+quality evaluation and follow-up loop.
+
+**Token-efficient alternative:** Install `searchwave-sonnet` from the
+marketplace for Sonnet synthesis variants with the same research architecture.
 
 ## When to Use
 
@@ -26,6 +29,10 @@ and follow-up loop.
 - Quick lookup, no questions needed
 - Simple factual questions
 - Time-sensitive (< 60 sec)
+
+**Use /searchwave-sonnet:deepwave instead when:**
+- Token efficiency is a priority
+- Sonnet synthesis quality is sufficient
 
 ---
 

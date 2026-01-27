@@ -1,6 +1,6 @@
 ---
 name: wave
-description: Quick web research (~60 sec) - fast lookups, synthesis. Use for "quick lookup", "fast research", or any topic needing quick context.
+description: Quick web research (~60 sec) - fast lookups, Opus synthesis. Use for "quick lookup", "fast research", or any topic needing quick context.
 user-invocable: true
 ---
 
@@ -27,6 +27,22 @@ runs immediately.
 - Complex topics requiring multiple angles
 - Need confidence assessment and source evaluation
 - "Deep research" or "comprehensive" requests
+
+**Use /firewave instead when:**
+- JS-heavy sources (docs sites, SPAs, React apps)
+- WebFetch has failed or returned incomplete content
+- Need content from dynamic/rendered pages
+
+## Variants
+
+| Skill | Synthesis | Speed | Cost |
+|-------|-----------|-------|------|
+| `/wave` | Opus (model default) | ~60s | Higher |
+| `/searchwave-sonnet:wave` | **Sonnet** | ~60s | Lower |
+| `/deepwave` | Opus | 70s-10min | Higher |
+| `/searchwave-sonnet:deepwave` | **Sonnet** | 70s-10min | Lower |
+
+**Token-efficient alternative:** Install `searchwave-sonnet` from the marketplace for Sonnet synthesis variants.
 
 ## Execution
 

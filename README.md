@@ -134,9 +134,19 @@ Asks two things before running: how deep, and what angle matters most.
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) with WebSearch access
 - Works best with Sonnet 4 or Opus 4.5
 
-## Experimental
+## Variants
 
-[searchwave-x10](https://github.com/rowbradley/searchwave-x10) — 10-search variant of Standard mode. Install separately from the marketplace:
+### Sonnet (Token-Efficient)
+
+[searchwave-sonnet](https://github.com/rowbradley/searchwave-sonnet) — Same search and fetch architecture, all synthesis uses Sonnet explicitly. Lower token cost.
+
+```
+/plugin install searchwave-sonnet@searchwave-marketplace
+```
+
+### X10 (Experimental)
+
+[searchwave-x10](https://github.com/rowbradley/searchwave-x10) — 10-search variant of Standard mode. Opus synthesis.
 
 ```
 /plugin install searchwave-x10@searchwave-marketplace

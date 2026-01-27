@@ -1,5 +1,5 @@
 ---
-description: "Deep web research with depth selection (~70s to 10min)"
+description: "Deep web research with Opus synthesis (~70s to 10min)"
 ---
 
 # Searchwave Deep
