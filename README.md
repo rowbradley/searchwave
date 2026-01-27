@@ -1,6 +1,8 @@
 # Searchwave
 
-Searchwave is a context agent for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that gets you (and Claude) up to speed on anything in about 60 seconds. Think native Claude Code search, but better and more comprehensive. Think Deep Research, but more concise, useful, and right in your terminal and Claude Code workflow.
+Searchwave is a context agent for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that gets you (and Claude) up to speed on anything in about 60 seconds. 
+
+Think native Claude Code search, but better and more comprehensive. Think Deep Research, but more concise, useful, and right in your terminal and Claude Code workflow.
 
 ## How it works
 
