@@ -1,41 +1,46 @@
 # Searchwave
 
-Research from your terminal. Type `/wave sleep optimization` and get a cited
-summary in 60 seconds. Need more? `/deepwave` runs multi-agent research with
-quality evaluation and Opus synthesis.
+Searchwave is a context agent for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that gets you up to speed on anything in about 60 seconds.
 
-A plugin for [Claude Code](https://docs.anthropic.com/en/docs/claude-code),
-Anthropic's CLI for Claude.
+## How it works
 
-## Commands
+You're mid-build and need to understand a new library. Or you're choosing between frameworks and want real data, not vibes. Instead of opening a browser and synthesizing five tabs yourself, you type:
 
-| Command | Time | What it does |
-|---------|------|--------------|
-| `/wave [topic]` | ~60s | Quick research. No questions asked. |
-| `/deepwave [topic]` | 70s–10min | Deep research with depth and priority selection. |
+```
+/wave react server components hydration
+```
 
-## When to Use Which
+Searchwave fires 3 parallel web searches, fetches the best sources, and synthesizes a cited summary — all in about 60 seconds. The output is structured for your terminal: inline citations, hard-wrapped at 80 columns, facts and numbers first.
 
-| Situation | Use |
-|-----------|-----|
-| Quick context on unfamiliar topic | `/wave` |
-| "What is X?" questions | `/wave` |
-| Research for a decision | `/deepwave` Standard |
-| Technical deep-dive | `/deepwave` Max |
-| Fact-checking a claim | `/wave` first, `/deepwave` if ambiguous |
+When you need more depth — evaluating a migration, comparing approaches, making a real decision — `/deepwave` asks how deep you want to go and what angle matters most, then dispatches parallel research agents with Opus synthesis.
 
-Start with `/wave`. If you need more depth, it'll be obvious.
+That's the core of it. Two commands, no configuration. Your agent just has context.
 
 ## Installation
 
-### Plugin Install (Recommended)
+### Claude Code (via Plugin Marketplace)
 
-```bash
-claude plugin marketplace add rowbradley/searchwave
-claude plugin install searchwave
+Register the marketplace:
+
+```
+/plugin marketplace add rowbradley/searchwave
+```
+
+Install the plugin:
+
+```
+/plugin install searchwave@searchwave
 ```
 
 Restart Claude Code after installing.
+
+### Verify Installation
+
+```
+/help
+```
+
+You should see `/wave` and `/deepwave` in your available commands.
 
 ### Manual Install
 
@@ -45,15 +50,22 @@ cp -r searchwave/skills/wave ~/.claude/skills/
 cp -r searchwave/skills/deepwave ~/.claude/skills/
 ```
 
-## How /wave Works
+## Commands
 
-3 parallel web searches → 3 best URLs fetched → Sonnet synthesis.
-No questions, no configuration. You type, it runs.
+| Command | Time | Use when |
+|---------|------|----------|
+| `/wave [topic]` | ~60s | Quick context — get up to speed fast |
+| `/deepwave [topic]` | 70s–10min | Deep evaluation — make a decision with real data |
 
-**Output:** 300–400 words, inline citations, survey voice. Hard-wrapped
-at 80 columns for terminal readability.
+Start with `/wave`. If you need more depth, it'll be obvious.
 
-## How /deepwave Works
+## /wave — Quick Context
+
+3 parallel searches → 3 best sources fetched → Sonnet synthesis. No questions asked. You type, it runs.
+
+**What you get:** 300–400 words, inline citations, survey voice. Hard-wrapped at 80 columns for terminal readability.
+
+## /deepwave — Deep Evaluation
 
 Asks two things before running: how deep, and what angle matters most.
 
@@ -63,11 +75,9 @@ Asks two things before running: how deep, and what angle matters most.
 | Standard | ~90s | 6 searches, Opus synthesis |
 | Max | ~5–10min | 3 parallel research agents → Opus evaluation → follow-up loop |
 
-**Output:** Survey-style report with inline citations, source quality
-notes, and confidence assessment. Max mode adds a "Go Deeper?" loop
-for iterative exploration.
+**What you get:** Survey-style report with inline citations, source quality notes, and confidence assessment. Max mode adds a "Go Deeper?" loop for iterative exploration.
 
-### Max Mode Architecture
+### How Max Mode Works
 
 ```
 ┌─────────────────────────────────────────┐
@@ -94,11 +104,11 @@ for iterative exploration.
 
 ## Design Principles
 
-- **Survey voice** — report what was found, don't editorialize
+- **Survey voice** — reports what was found, doesn't editorialize
 - **Inline citations** — every claim attributed to its source
-- **Source limitations noted** — vendor reports flagged, small samples called out
-- **No AI writing patterns** — no hyperbole, no dramatic reframes, numbers first
-- **Terminal-native** — hard-wrapped at 80 columns for readability
+- **Source quality awareness** — vendor reports flagged, limitations noted
+- **No AI writing patterns** — no hyperbole, no reframes, numbers first
+- **Terminal-native** — hard-wrapped at 80 columns
 
 ## Requirements
 
@@ -107,9 +117,7 @@ for iterative exploration.
 
 ## Experimental
 
-`/deepwave-x10 [topic]` — Standard mode variant with 10 parallel searches
-instead of 6. Testing whether more search diversity improves output quality.
-Compare against `/deepwave` Standard.
+`/deepwave-x10` — Standard mode with 10 parallel searches instead of 6. Testing whether more search diversity improves coverage.
 
 ## License
 

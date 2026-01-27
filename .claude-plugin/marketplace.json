@@ -7,7 +7,7 @@
     {
       "name": "searchwave",
       "source": "./",
-      "description": "AI research synthesis for Claude Code — quick lookups to deep multi-agent research"
+      "description": "Context agent for Claude Code — get up to speed on anything in 60 seconds"
     }
   ]
 }
