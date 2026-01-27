@@ -30,13 +30,13 @@ Output is structured for terminals: inline citations, survey voice, hard-wrapped
 Register the marketplace:
 
 ```
-/plugin marketplace add rowbradley/searchwave
+/plugin marketplace add rowbradley/searchwave-marketplace
 ```
 
 Install the plugin:
 
 ```
-/plugin install searchwave@searchwave
+/plugin install searchwave@searchwave-marketplace
 ```
 
 Restart Claude Code after installing.
