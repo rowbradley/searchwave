@@ -4,17 +4,18 @@ Searchwave is a context agent for [Claude Code](https://docs.anthropic.com/en/do
 
 ## How it works
 
-You're mid-build and need to understand a new library. Or you're choosing between frameworks and want real data, not vibes. Instead of opening a browser and synthesizing five tabs yourself, you type:
+`/wave` runs 3 parallel web searches, selects the best sources, fetches their content, and synthesizes a cited summary. The whole process takes about 60 seconds with no configuration or follow-up questions.
 
-```
-/wave react server components hydration
-```
+`/deepwave` adds depth control. Before running, it asks how deep (Quick / Standard / Max) and what angle matters most. All tiers use Opus for synthesis. Max mode dispatches 3 parallel research agents, evaluates source quality, and supports iterative follow-up.
 
-Searchwave fires 3 parallel web searches, fetches the best sources, and synthesizes a cited summary — all in about 60 seconds. The output is structured for your terminal: inline citations, hard-wrapped at 80 columns, facts and numbers first.
+Output is structured for terminals: inline citations, survey voice, hard-wrapped at 80 columns.
 
-When you need more depth — evaluating a migration, comparing approaches, making a real decision — `/deepwave` asks how deep you want to go and what angle matters most, then dispatches parallel research agents with Opus synthesis.
+### Use cases
 
-That's the core of it. Two commands, no configuration. Your agent just has context.
+- Check how a framework or library works before adopting it
+- Compare tools or approaches with real data
+- Verify technical requirements or compatibility
+- Get up to speed on an unfamiliar topic mid-task
 
 ## Installation
 
