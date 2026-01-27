@@ -39,7 +39,19 @@ Install the plugin:
 /plugin install searchwave@searchwave-marketplace
 ```
 
-Restart Claude Code after installing.
+Restart Claude Code after installing. Commands will be available as `/searchwave:wave` and `/searchwave:deepwave`.
+
+### Shorter Command Names (Recommended)
+
+For `/wave` and `/deepwave` without the namespace prefix, copy the command files locally:
+
+```bash
+git clone https://github.com/rowbradley/searchwave.git
+cp searchwave/commands/wave.md ~/.claude/commands/
+cp searchwave/commands/deepwave.md ~/.claude/commands/
+```
+
+Local commands take priority over plugin commands and give you the shorter names.
 
 ### Verify Installation
 
