@@ -1,5 +1,5 @@
 ---
-name: wavedeep-x10
+name: deepwave-x10
 description: "EXPERIMENTAL: Standard mode with 10 parallel searches (vs 6). Testing if more searches = better coverage."
 user-invocable: true
 ---
@@ -11,11 +11,11 @@ that more search diversity improves output quality.
 
 ## When to Use
 
-**Use /wavedeep-x10 when:**
-- A/B testing against standard `/wavedeep` Standard mode
+**Use /deepwave-x10 when:**
+- A/B testing against standard `/deepwave` Standard mode
 - Want to see if 10 searches provides better coverage
 
-**Compare results to:** `/wavedeep` with Standard tier selected
+**Compare results to:** `/deepwave` with Standard tier selected
 
 ---
 
@@ -60,7 +60,7 @@ Always include one "Recent developments" option.
 
 ### Step 1: Search (10 parallel)
 
-Fire 10 WebSearches in ONE message:
+Fire 10 WebSearches in ONE message (all use `blocked_domains: ["medium.com"]`):
 ```
 "$ARGUMENTS"
 "$ARGUMENTS [user's first priority]"
@@ -76,7 +76,7 @@ Fire 10 WebSearches in ONE message:
 
 ### Step 2: Fetch (10 parallel)
 
-From search results, pick 10 best URLs. Skip Wikipedia for fetching (403s — use search snippets instead).
+From search results, pick 10 best URLs. Skip Wikipedia for fetching (403s — use search snippets instead). Medium is blocked at search level.
 
 Priority order:
 1. gov/institutional, domain authorities
@@ -140,4 +140,3 @@ Output format:
 
 *Searchwave Deep (X10) · [N] sources*
 ```
-

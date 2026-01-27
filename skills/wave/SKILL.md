@@ -22,7 +22,7 @@ runs immediately.
 - Simple factual questions
 - Time-sensitive requests
 
-**Use /wavedeep instead when:**
+**Use /deepwave instead when:**
 - User wants depth selection or priority focus
 - Complex topics requiring multiple angles
 - Need confidence assessment and source evaluation
@@ -52,12 +52,15 @@ Fire 3 WebSearches in ONE message:
 "[topic] guide"        → actionable content
 ```
 
+All searches use `blocked_domains: ["medium.com"]` — Medium never fetches usefully.
+
 ### Step 2: Curate (10 sec)
 
 Pick 3 URLs. Prefer: gov/institutional, domain authorities, quality blogs.
 
 Skip for fetching:
 - Wikipedia (403s — use snippet from search results instead)
+- Medium (blocked at search level — never useful)
 - Paywalled sites
 - SEO farms, outdated content
 

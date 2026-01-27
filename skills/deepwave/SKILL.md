@@ -1,5 +1,5 @@
 ---
-name: wavedeep
+name: deepwave
 description: Deep web research with depth selection (~70s to 10min). Use for "deep research", "comprehensive research", or multi-source synthesis.
 user-invocable: true
 ---
@@ -16,7 +16,7 @@ and follow-up loop.
 
 ## When to Use
 
-**Use /wavedeep when:**
+**Use /deepwave when:**
 - User wants to select research depth
 - Complex topics requiring multiple angles
 - Need confidence assessment and source evaluation
@@ -103,7 +103,7 @@ Print banner:
 
 ### Step 1: Search (parallel)
 
-Fire 3 WebSearches in ONE message:
+Fire 3 WebSearches in ONE message (all use `blocked_domains: ["medium.com"]`):
 ```
 "$ARGUMENTS"
 "$ARGUMENTS [user's first priority]"
@@ -112,7 +112,7 @@ Fire 3 WebSearches in ONE message:
 
 ### Step 2: Fetch (parallel)
 
-From search results, pick 3 best URLs. Skip Wikipedia for fetching (403s — use search snippets instead).
+From search results, pick 3 best URLs. Skip Wikipedia for fetching (403s — use search snippets instead). Medium is blocked at search level.
 
 Fire 3 WebFetches in ONE message.
 
@@ -179,7 +179,7 @@ Print banner:
 
 ### Step 1: Search (parallel)
 
-Fire 6 WebSearches in ONE message:
+Fire 6 WebSearches in ONE message (all use `blocked_domains: ["medium.com"]`):
 ```
 "$ARGUMENTS"
 "$ARGUMENTS [user's first priority]"
@@ -191,7 +191,7 @@ Fire 6 WebSearches in ONE message:
 
 ### Step 2: Fetch (parallel)
 
-From search results, pick 6 best URLs. Skip Wikipedia for fetching (403s — use search snippets instead).
+From search results, pick 6 best URLs. Skip Wikipedia for fetching (403s — use search snippets instead). Medium is blocked at search level.
 
 Priority order:
 1. gov/institutional, domain authorities
@@ -278,7 +278,7 @@ Fire 3 Task tools simultaneously with `run_in_background: true`:
 **Agent A - Facts/Data** (the "what"):
 ```
 Research "$ARGUMENTS" — focus on hard data, numbers, and studies.
-Do 2 WebSearches, pick 3 URLs (skip Wikipedia for fetching — use search snippets instead).
+Do 2 WebSearches (use blocked_domains: ["medium.com"]), pick 3 URLs (skip Wikipedia for fetching — use search snippets instead).
 Prefer: .gov/.edu, research papers, official statistics, authoritative sources.
 Do 3 WebFetches, write 400-word section.
 Output: specific numbers, thresholds, study findings, comparisons. Tables encouraged.
@@ -288,7 +288,7 @@ Style: concrete > abstract, cite sources inline, no --- dividers.
 **Agent B - Approaches/Application** (the "how"):
 ```
 Research "$ARGUMENTS" — focus on practical application, approaches, common mistakes.
-Do 2 WebSearches, pick 3 URLs (skip Wikipedia for fetching — use search snippets instead).
+Do 2 WebSearches (use blocked_domains: ["medium.com"]), pick 3 URLs (skip Wikipedia for fetching — use search snippets instead).
 Prefer: how-to guides, Reddit/forums for real experience, practitioner blogs, comparison articles.
 Do 3 WebFetches, write 400-word section.
 Output: actionable approaches, trade-offs, what to avoid, real-world experience.
@@ -298,7 +298,7 @@ Style: actionable > theoretical, include warnings, no --- dividers.
 **Agent C - Mechanisms/Context** (the "why"):
 ```
 Research "$ARGUMENTS" — focus on mechanisms, mental models, underlying processes.
-Do 2 WebSearches, pick 3 URLs (skip Wikipedia for fetching — use search snippets instead).
+Do 2 WebSearches (use blocked_domains: ["medium.com"]), pick 3 URLs (skip Wikipedia for fetching — use search snippets instead).
 Prefer: educational content, explainers, technical deep-dives, expert breakdowns.
 Do 3 WebFetches, write 400-word section.
 Output: cause-effect relationships, how things work, frameworks for understanding.
@@ -388,7 +388,7 @@ For each gap/reference/contradiction identified:
 
 Fire Task with `run_in_background: true`, timeout 60 sec:
   "Research [specific gap/reference/contradiction].
-   Do 1-2 targeted WebSearches, fetch 2-3 URLs.
+   Do 1-2 targeted WebSearches (use blocked_domains: ["medium.com"]), fetch 2-3 URLs.
    Write 200-word focused section addressing this specific point.
    Cite sources inline."
 ```
@@ -524,14 +524,8 @@ Want me to explore any other area?
 | Wave 2 adds nothing | Proceed to synthesis, don't spawn more waves |
 | Evaluation unclear | Default to SUFFICIENT, proceed to synthesis |
 
-**CRITICAL: Output handling**
-
-When you receive the TaskOutput from the Opus synthesis agent:
-1. **Print the COMPLETE synthesis verbatim** — every word, every section, full length
-2. Do NOT summarize, paraphrase, or truncate the synthesis
-3. Do NOT add commentary before or after
-4. The TaskOutput content IS your response — pass it through completely
-
-The synthesis agent writes 800-2500 words. ALL of those words must appear in
-your output. If you're tempted to shorten it, don't — the user asked for
-comprehensive research.
+**CRITICAL: Output discipline**
+- Return the Opus synthesis output ONLY — no wrapper text before or after
+- Do NOT announce agent completions ("Agent X completed")
+- Do NOT add commentary after the report ("Research complete...", "Let me know if...")
+- The synthesis output IS the final response — nothing else

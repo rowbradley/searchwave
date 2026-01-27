@@ -1,10 +1,10 @@
 {
   "name": "searchwave",
-  "description": "AI research synthesis - quick lookups to deep research with Opus",
-  "version": "1.0.0",
+  "description": "AI research synthesis for Claude Code — quick lookups to deep multi-agent research",
+  "version": "1.1.0",
   "author": {
     "name": "Rowan Bradley"
   },
   "license": "MIT",
-  "keywords": ["research", "web-search", "synthesis", "opus", "parallel-agents"]
+  "keywords": ["research", "web-search", "synthesis", "opus", "parallel-agents", "deep-research"]
 }

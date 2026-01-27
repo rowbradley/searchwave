@@ -7,7 +7,7 @@
     {
       "name": "searchwave",
       "source": "./",
-      "description": "AI research synthesis - quick lookups to deep research with Opus"
+      "description": "AI research synthesis for Claude Code — quick lookups to deep multi-agent research"
     }
   ]
 }
