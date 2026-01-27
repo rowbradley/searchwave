@@ -136,7 +136,11 @@ Asks two things before running: how deep, and what angle matters most.
 
 ## Experimental
 
-`/deepwave-x10` — Standard mode with 10 parallel searches instead of 6. Testing whether more search diversity improves coverage.
+[searchwave-x10](https://github.com/rowbradley/searchwave-x10) — 10-search variant of Standard mode. Install separately from the marketplace:
+
+```
+/plugin install searchwave-x10@searchwave-marketplace
+```
 
 ## License
 
