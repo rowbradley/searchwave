@@ -1,7 +1,7 @@
 {
   "name": "searchwave",
   "description": "Context agent for Claude Code — get up to speed on anything in 60 seconds",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "Rowan Bradley"
   },
