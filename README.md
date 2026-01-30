@@ -114,7 +114,7 @@ Asks two things before running: how deep, and what angle matters most.
 │  Opus Evaluation (quality signals)      │
 │       │                                 │
 │       ├─ SUFFICIENT → Synthesize        │
-│       └─ NEEDS_MORE → Wave 2 → Synth   │
+│       └─ NEEDS_MORE → Wave 2 → Synth    │
 │                                         │
 │  Final: Opus synthesis with confidence  │
 │  assessment + "Go Deeper?" loop         │
