@@ -152,6 +152,43 @@ Asks two things before running: how deep, and what angle matters most.
 /plugin install searchwave-x10@searchwave-marketplace
 ```
 
+## Bash Hardening for Skill Authors
+
+If your skills run parallel Bash calls (via Claude Code's tool system), these rules prevent cascade failures where one failed call kills all siblings:
+
+### `|| true` on every grep/filter
+`grep` returns exit code 1 when zero matches, which cascades to kill sibling tool calls.
+```bash
+# Bad — exit 1 on no matches kills siblings
+ps aux | grep -E 'node|next' | grep -v grep
+
+# Good — neutralizes exit code
+ps aux | grep -E 'node|next' | grep -v grep || true
+```
+
+### Avoid zsh reserved variable names
+zsh treats `status`, `pipestatus`, `MATCH`, `match` as read-only. Assigning to them throws a hard error.
+```bash
+# Bad — zsh read-only variable
+status=$(git status --porcelain)
+
+# Good — prefixed name
+gstatus=$(git status --porcelain)
+```
+
+### Newlines over `&&` for echo+pipe chains
+`&&` makes each segment dependent on the previous. Use newlines so echo failures don't kill pipes.
+```bash
+# Bad — echo failure kills grep
+echo "===SECTION===" && ps aux | grep pattern
+
+# Good — independent statements
+echo "===SECTION==="
+ps aux | grep pattern || true
+```
+
+These patterns are documented in detail in Claude Code's [parallel tool protocol](https://docs.anthropic.com/en/docs/claude-code).
+
 ## License
 
 MIT
