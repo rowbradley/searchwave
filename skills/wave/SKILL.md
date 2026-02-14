@@ -82,7 +82,7 @@ Skip for fetching:
 
 ### Step 3: Fetch (3 parallel)
 
-Fire 3 WebFetches in ONE message. Proceed with available if any fail.
+Fire 3 WebFetches in ONE message. If any fetch fails, proceed with available results — do not retry the full batch.
 
 ### Step 4: Write
 
