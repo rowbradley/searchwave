@@ -180,25 +180,33 @@ Print banner:
 ╔═════════════════════════════════════════╗
 ║           S E A R C H W A V E           ║
 ║                · · · · ·                ║
-║      Searching: 6 parallel queries      ║
+║      Searching: 6 queries (2 waves)     ║
 ╚═════════════════════════════════════════╝
 ```
 
-### Step 1: Search (parallel)
+### Step 1a: Search batch 1 (3 parallel)
 
-Fire 6 WebSearches in ONE message (all use `blocked_domains: ["medium.com"]`):
+Fire 3 WebSearches in ONE message (all use `blocked_domains: ["medium.com"]`):
 ```
 "$ARGUMENTS"
 "$ARGUMENTS [user's first priority]"
 "$ARGUMENTS [user's second priority, or 'guide' if only one selected]"
+```
+
+### Step 1b: Search batch 2 (3 parallel)
+
+Fire 3 WebSearches in ONE message (all use `blocked_domains: ["medium.com"]`):
+```
 "$ARGUMENTS guide"
 "$ARGUMENTS interesting"
 "$ARGUMENTS recent"
 ```
 
-### Step 2: Fetch (parallel)
+If any search fails, retry it individually. Do not re-run the batch.
 
-From search results, pick 6 best URLs. Skip Wikipedia for fetching (403s — use search snippets instead). Medium is blocked at search level.
+### Step 2a: Fetch batch 1 (3 parallel)
+
+From all search results, pick 6 best URLs. Skip Wikipedia for fetching (403s — use search snippets instead). Medium is blocked at search level.
 
 Priority order:
 1. gov/institutional, domain authorities
@@ -206,7 +214,11 @@ Priority order:
 3. Reddit/forums (real user experience)
 4. News sites (recent)
 
-Fire 6 WebFetches in ONE message.
+Fire 3 WebFetches in ONE message (top 3 URLs).
+
+### Step 2b: Fetch batch 2 (3 parallel)
+
+Fire 3 WebFetches in ONE message (next 3 URLs). If any fetch fails, proceed with available results.
 
 ### Step 3: Opus Synthesis
 
